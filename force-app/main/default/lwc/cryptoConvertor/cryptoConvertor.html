@@ -3,7 +3,7 @@
 <lightning-card title="Crypto Convertor">
 
     <template if:true={currentPrice}>
-        <p >Selected value current price is : {currentPrice}</p>
+        <p >Selected value current price is : R{currentPrice}</p>
         <img class="slds-col" src={imageURL} height="50px" width="50px">             
         </template>
     <template if:true={coinsData.data}>
@@ -26,7 +26,7 @@
     </div> 
 
     <template if:true={convertedPrice}>
-        <p>You have : {userCurrency} worth of {selectedCoinValue}</p>
+        <p>You have : R{userCurrency} worth of {selectedCoinValue}</p>
         </template>
 
     <div class="slds-grid slds-gutters slds-grid_vertical-align-end">

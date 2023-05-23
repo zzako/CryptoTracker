@@ -40,6 +40,7 @@ export default class CryptoConvertor extends LightningElement {
             (option) => option.value === this.selectedCoin
           );
         this.currentPrice = selectedOption ? selectedOption.price : null;
+        //this.currentPrice = new Intl.NumberFormat(LOCALE, { style: 'currency', currency: CURRENCY, currencyDisplay: "symbol"}).format(this.currentPrice);
         this.imageURL = selectedOption ? selectedOption.image : null;
         this.selectedCoinValue = selectedOption ? selectedOption.label : null;
 
@@ -63,8 +64,10 @@ export default class CryptoConvertor extends LightningElement {
     convertToFiat()
     {
         console.log("inputprice " + this.inputPrice);
+    
         this.convertedPrice = this.inputPrice * this.currentPrice;
-        this.userCurrency = new Intl.NumberFormat(LOCALE, { style: 'currency', currency: CURRENCY, currencyDisplay: "symbol"}).format(this.convertedPrice);
+        //this.userCurrency = new Intl.NumberFormat(LOCALE, { style: 'currency', currency: CURRENCY, currencyDisplay: "symbol"}).format(this.convertedPrice);
+        this.userCurrency = this.convertedPrice.toFixed(2);
         console.log("Converted price is " + this.convertedPrice);
     }
 
