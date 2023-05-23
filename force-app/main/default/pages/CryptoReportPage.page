@@ -1,0 +1,12 @@
+<apex:page controller="CoinsController">       
+        <apex:chart data="{!CoinsData}" height="700" width="900">
+        <apex:legend position="right" spacing="6" />
+        <apex:axis type="Category" position="left" fields="name"
+                   title="name" />
+        <apex:axis type="Numeric" position="bottom" fields="currentPrice"
+                   title="price">
+        </apex:axis>
+        <apex:barSeries orientation="horizontal" axis="left"
+ xField="currentPrice" yField="name"  colorSet="Red,Blue,Green,Purple" colorsProgressWithinSeries="true"/>
+    </apex:chart>   
+</apex:page>
