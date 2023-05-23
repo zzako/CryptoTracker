@@ -1,0 +1,47 @@
+<template>
+    <div class="slds-card" style="height:500px; width:500px">
+<lightning-card title="Crypto Convertor">
+
+    <template if:true={currentPrice}>
+        <p >Selected value current price is : {currentPrice}</p>
+        <img class="slds-col" src={imageURL} height="50px" width="50px">             
+        </template>
+    <template if:true={coinsData.data}>
+        <lightning-combobox
+        name="Crypto"
+        label="Crypto"
+        options={coinOptions}
+        value={selectedCoin}
+        placeholder="Select Coin"
+        onchange={handleCoinSelection}
+        ></lightning-combobox>
+
+    <div class="slds-grid slds-gutters slds-grid_vertical-align-end">
+        <div class="slds-col slds-size_2-of-3">
+    <lightning-input label="inputCrypto" placeholder="Enter Amount of Crypto Owned eg) 0.1" onchange={handleEvent}></lightning-input>
+</div>
+   <div class="slds-col slds-size_1-of-3"> 
+    <lightning-button label="submit" onclick={convertToFiat} ></lightning-button>
+</div>
+    </div> 
+
+    <template if:true={convertedPrice}>
+        <p>You have : {userCurrency} worth of {selectedCoinValue}</p>
+        </template>
+
+    <div class="slds-grid slds-gutters slds-grid_vertical-align-end">
+        <div class="slds-col slds-size_2-of-3">
+    <lightning-input label="inputfiat" placeholder="Enter Amount of Crypto Purchased eg) 5000" onchange={handleEventCrypto}></lightning-input>
+</div>
+   <div class="slds-col slds-size_1-of-3"> 
+    <lightning-button label="submit" onclick={convertToCrypto} ></lightning-button>
+</div>
+    </div>  
+        <template if:true={convertToCrypto}>
+            <p>You have : {convertedPrice2} {selectedCoinValue}</p>
+            </template>
+    </template>
+
+</lightning-card>
+</div>
+</template>
